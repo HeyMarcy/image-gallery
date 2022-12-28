@@ -82,10 +82,10 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
         </div>
       </main>
       <footer className='grid grid-cols-1 gap-2 p-6 text-center  text-white/50 sm:p-12'>
-        <p className='text-m hover:text-white'>
+        <p className='text-base hover:text-white'>
           <a href='https://icongallery.com'>Visit the entire collection </a>
         </p>
-        <p className='text-xs'>
+        <p className='text-sm'>
           <a href='https://icongallery.com/copyright/' title='Copyright Notice'>
             ©2022 Icon Gallery LLC
           </a>
