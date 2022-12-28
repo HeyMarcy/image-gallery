@@ -43,14 +43,17 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
         )}
 
         <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'>
-          <div className='after:content relative col-span-1 flex flex-col items-center gap-3 overflow-hidden rounded-lg bg-white/10 px-6 pb-16 pt-16 text-center text-white shadow-highlight after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight sm:col-span-2 lg:col-span-1 lg:pt-0'>
-            <Logo />
-            <h1 className='mb-1 mt-2 text-base  uppercase tracking-widest'>
-              An Icon Gallery private collection
-            </h1>
-            {/* <p className='max-w-[40ch] font-light text-white/75 sm:max-w-[32ch]'>
+          <div className='after:pointer-events-non col-span-1 flex flex-col items-center  bg-white/10 p-16  text-center text-white shadow-highlight after:shadow-highlight '>
+            {/* <div className='after:content relative col-span-1 flex flex-col items-center  overflow-hidden rounded-lg  text-center text-white shadow-highlight after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight sm:col-span-2 lg:col-span-1 lg:pt-0'> */}
+            <div className='-mt-2  flex h-full flex-col items-center justify-center gap-4'>
+              <Logo />
+              <h1 className='text-base  uppercase tracking-widest'>
+                An Icon Gallery private collection
+              </h1>
+              {/* <p className='max-w-[40ch] font-light text-white/75 sm:max-w-[32ch]'>
               Curated for Joe Smith
             </p> */}
+            </div>
           </div>
           {images.map(({ id, public_id, format, blurDataUrl }) => (
             <Link
@@ -79,7 +82,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
         </div>
       </main>
       <footer className='grid grid-cols-1 gap-2 p-6 text-center  text-white/50 sm:p-12'>
-        <p className='text-sm hover:text-white'>
+        <p className='text-m hover:text-white'>
           <a href='https://icongallery.com'>Visit the entire collection </a>
         </p>
         <p className='text-xs'>
