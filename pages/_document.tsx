@@ -1,35 +1,34 @@
-import Document, { Head, Html, Main, NextScript } from 'next/document'
+import Document, { Head, Html, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en">
+      <Html lang='en'>
         <Head>
-          <link rel="icon" href="/favicon.ico" />
-          <meta
-            name="description"
-            content="See pictures from Next.js Conf and the After Party."
+          <link rel='icon' href='/favicon.ico' />
+          <link rel='preconnect' href='https://fonts.googleapis.com' />
+          <link rel='preconnect' href='https://fonts.gstatic.com' />
+          <link
+            href='https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap'
+            rel='stylesheet'
           />
-          <meta property="og:site_name" content="nextjsconf-pics.vercel.app" />
           <meta
-            property="og:description"
-            content="See pictures from Next.js Conf and the After Party."
+            name='description'
+            content='This is gallery of selected images'
           />
-          <meta property="og:title" content="Next.js Conf 2022 Pictures" />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Next.js Conf 2022 Pictures" />
           <meta
-            name="twitter:description"
-            content="See pictures from Next.js Conf and the After Party."
+            property='og:description'
+            content='This is gallery of selected images.'
           />
+          <meta property='og:title' content='Icon Gallery - Custom Curation' />
         </Head>
-        <body className="bg-black antialiased">
+        <body className='bg-black antialiased'>
           <Main />
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;

@@ -43,14 +43,14 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
         )}
 
         <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4'>
-          <div className='after:content relative col-span-1 flex flex-col items-center gap-4 overflow-hidden rounded-lg bg-white/10 px-6 pb-16 pt-16 text-center text-white shadow-highlight after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight sm:col-span-2 lg:col-span-1 lg:pt-0'>
+          <div className='after:content relative col-span-1 flex flex-col items-center gap-3 overflow-hidden rounded-lg bg-white/10 px-6 pb-16 pt-16 text-center text-white shadow-highlight after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight sm:col-span-2 lg:col-span-1 lg:pt-0'>
             <Logo />
-            <h1 className='mt-8 mb-4 text-base font-bold uppercase tracking-widest'>
-              A selection of photographs for Joe Smith
+            <h1 className='mb-1 mt-2 text-base  uppercase tracking-widest'>
+              An Icon Gallery private collection
             </h1>
-            <p className='max-w-[40ch] text-white/75 sm:max-w-[32ch]'>
-              A selection of photographs for Joe Smith
-            </p>
+            {/* <p className='max-w-[40ch] font-light text-white/75 sm:max-w-[32ch]'>
+              Curated for Joe Smith
+            </p> */}
           </div>
           {images.map(({ id, public_id, format, blurDataUrl }) => (
             <Link
@@ -59,12 +59,11 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
               as={`/p/${id}`}
               id={`photo-${id}`}
               shallow
-              className='after:content group relative cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight'
+              className='after:content group relative flex cursor-zoom-in overflow-hidden after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight'
             >
               <Image
-                alt='Next.js Conf photo'
-                className='transform rounded-lg brightness-90 transition will-change-auto group-hover:brightness-110'
-                style={{ transform: "translate3d(0, 0, 0)" }}
+                alt={public_id}
+                className='m-auto transform rounded-lg brightness-90 transition will-change-auto group-hover:brightness-110'
                 placeholder='blur'
                 blurDataURL={blurDataUrl}
                 src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_720/${public_id}.${format}`}
@@ -79,12 +78,15 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
           ))}
         </div>
       </main>
-      <footer className='p-6 text-center text-white/80 sm:p-12'>
-        Please{" "}
-        <a href='mailto:info@icongallery.com' title='Email'>
-          let us know
-        </a>{" "}
-        what you think{" "}
+      <footer className='grid grid-cols-1 gap-2 p-6 text-center  text-white/50 sm:p-12'>
+        <p className='text-sm hover:text-white'>
+          <a href='https://icongallery.com'>Visit the entire collection </a>
+        </p>
+        <p className='text-xs'>
+          <a href='https://icongallery.com/copyright/' title='Copyright Notice'>
+            ©2022 Icon Gallery LLC
+          </a>
+        </p>
       </footer>
     </>
   );
