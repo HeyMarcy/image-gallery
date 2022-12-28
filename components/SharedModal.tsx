@@ -87,6 +87,9 @@ export default function SharedModal({
           {/* Buttons */}
           {loaded && (
             <div className='relative aspect-[3/2] max-h-full w-full'>
+                <div className='font-sm absolute bottom-1 right-3 z-50 bg-black px-2 py-1 text-white'>
+                <p className='text-sm md:text-base '> {imageLabel}</p>
+              </div>
               {navigation && (
                 <>
                   {index > 0 && (
@@ -109,9 +112,7 @@ export default function SharedModal({
                   )}
                 </>
               )}
-              <div className='font-sm absolute bottom-0 right-4 z-50 bg-black px-4 py-2 text-white'>
-                <p className='text-sm'> {imageLabel}</p>
-              </div>
+            
 
               <div className='absolute top-0 right-0 flex items-center gap-2 p-3 text-white'>
                 <a
