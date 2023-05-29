@@ -87,7 +87,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
         </p>
         <p className='text-sm text-white/50 hover:text-white'>
           <a href='https://icongallery.com/copyright/' title='Copyright Notice'>
-            ©2022 Icon Gallery LLC
+            ©2023 Icon Gallery LLC
           </a>
         </p>
       </footer>
