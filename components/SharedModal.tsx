@@ -54,7 +54,7 @@ export default function SharedModal({
       >
         {/* Main image */}
         <div className='w-full overflow-hidden '>
-          <div className='relative  flex  aspect-[3/2] items-center justify-center '>
+          <div className='relative  flex  aspect-[2/3] items-center justify-center '>
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={index}
@@ -66,13 +66,9 @@ export default function SharedModal({
                 className='absolute '
               >
                 <Image
-                  src={`https://res.cloudinary.com/${
-                    process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
-                  }/image/upload/c_scale,${navigation ? "w_1280" : "w_1920"}/${
-                    currentImage.public_id
-                  }.${currentImage.format}`}
-                  width={navigation ? 1280 : 1920}
-                  height={navigation ? 853 : 1280}
+                  src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_800/${currentImage.public_id}.${currentImage.format}`}
+                  width={800}
+                  height={600}
                   priority
                   alt={imageLabel}
                   onLoadingComplete={() => setLoaded(true)}
@@ -87,7 +83,7 @@ export default function SharedModal({
           {/* Buttons */}
           {loaded && (
             <div className='relative aspect-[3/2] max-h-full w-full'>
-                <div className='font-sm absolute bottom-1 right-3 z-50 bg-black px-2 py-1 text-white'>
+              <div className='font-sm absolute bottom-1 right-3 z-50 bg-black px-2 py-1 text-white'>
                 <p className='text-sm md:text-base '> {imageLabel}</p>
               </div>
               {navigation && (
@@ -112,7 +108,6 @@ export default function SharedModal({
                   )}
                 </>
               )}
-            
 
               <div className='absolute top-0 right-0 flex items-center gap-2 p-3 text-white'>
                 <a
@@ -144,7 +139,7 @@ export default function SharedModal({
             <div className='fixed inset-x-0 bottom-0 z-40 overflow-hidden bg-gradient-to-b from-black/0 to-black/60'>
               <motion.div
                 initial={false}
-                className='mx-auto mt-6 mb-6 flex aspect-[3/2] h-14'
+                className='mx-auto mt-6 mb-6 flex aspect-[3/2] h-20'
               >
                 <AnimatePresence initial={false}>
                   {filteredImages.map(({ public_id, format, id }) => (
@@ -171,12 +166,12 @@ export default function SharedModal({
                     >
                       <Image
                         alt='thumbnails at bottom'
-                        width={180}
-                        height={120}
+                        width={200}
+                        height={140}
                         className={`${
                           id === index
                             ? "brightness-110 hover:brightness-110"
-                            : "brightness-50 contrast-125 hover:brightness-75"
+                            : "brightness-80 contrast-125 hover:brightness-95"
                         } h-full transform object-cover transition`}
                         src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_180/${public_id}.${format}`}
                       />
