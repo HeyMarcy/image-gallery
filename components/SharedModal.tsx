@@ -1,3 +1,5 @@
+// TODO: add loading spinner
+
 import {
   ArrowDownTrayIcon,
   ArrowTopRightOnSquareIcon,
@@ -36,10 +38,10 @@ export default function SharedModal({
     onSwipedRight: () => changePhotoId(index - 1),
     trackMouse: true,
   });
-
   let currentImage = images ? images[index] : currentPhoto;
   const imageLabel = currentImage.public_id.slice(16, -7);
-  console.log("imageLabel", imageLabel);
+  console.log("currentPhoto", currentImage);
+  let aspectRatio = Number(currentImage.width) / Number(currentImage.height);
 
   return (
     <MotionConfig
@@ -49,12 +51,13 @@ export default function SharedModal({
       }}
     >
       <div
-        className='relative z-50 flex  w-full max-w-5xl items-center wide:h-full xl:taller-than-854:h-auto'
+        className='relative z-50  flex h-max w-full items-center'
+        // className='relative z-50 flex  w-full max-w-5xl items-center wide:h-full xl:taller-than-854:h-auto'
         {...handlers}
       >
         {/* Main image */}
-        <div className='w-full overflow-hidden '>
-          <div className='relative  flex  aspect-[2/3] items-center justify-center '>
+        <div className='h-97 w-full overflow-hidden'>
+          <div className='relative flex aspect-[1/2] items-center justify-center'>
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={index}
@@ -66,9 +69,13 @@ export default function SharedModal({
                 className='absolute '
               >
                 <Image
-                  src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_800/${currentImage.public_id}.${currentImage.format}`}
-                  width={800}
-                  height={600}
+                  src={`https://res.cloudinary.com/${
+                    process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
+                  }/image/upload/c_fill,${navigation ? "w_1280" : "w_1920"}/${
+                    currentImage.public_id
+                  }.${currentImage.format}`}
+                  width={aspectRatio > 1 ? 900 : 500}
+                  height={800}
                   priority
                   alt={imageLabel}
                   onLoadingComplete={() => setLoaded(true)}
@@ -159,7 +166,7 @@ export default function SharedModal({
                         height={140}
                         className={`${
                           id === index
-                            ? "brightness-110 hover:brightness-110"
+                            ? "brightness-110 contrast-125 hover:brightness-110"
                             : "brightness-80 contrast-125 hover:brightness-95"
                         } h-full transform object-cover transition`}
                         src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_180/${public_id}.${format}`}

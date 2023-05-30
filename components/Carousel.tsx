@@ -14,7 +14,6 @@ export default function Carousel({
 }) {
   const router = useRouter();
   const [, setLastViewedPhoto] = useLastViewedPhoto();
-
   function closeModal() {
     setLastViewedPhoto(currentPhoto.id);
     router.push("/", undefined, { shallow: true });
@@ -36,7 +35,7 @@ export default function Carousel({
       >
         <Image
           src={currentPhoto.blurDataUrl}
-          className='pointer-events-none h-full w-full'
+          className='pointer-events-none h-full w-full '
           alt='blurred background'
           fill
           priority={true}
