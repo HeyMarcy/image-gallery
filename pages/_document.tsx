@@ -14,13 +14,10 @@ class MyDocument extends Document {
           />
           <meta
             name='description'
-            content='This is gallery of selected images'
+            content='Icon Gallery Viewing Room'
           />
-          <meta
-            property='og:description'
-            content='This is gallery of selected images.'
-          />
-          <meta property='og:title' content='Icon Gallery - Custom Curation' />
+   
+          <meta property='og:title' content='Icon Gallery Viewing Room' />
         </Head>
         <body className='bg-black antialiased'>
           <Main />
