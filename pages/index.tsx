@@ -50,7 +50,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
             </h2>
             <h1 className='text-5xl  uppercase tracking-widest'>PRINCE</h1>
             <h2 className='max-w-[40ch] tracking-wide text-white/75 sm:max-w-[32ch]'>
-              Curated for Susan XXXXX
+              Curated for Susan Beck
             </h2>
           </div>
           {images.map(({ id, public_id, format, blurDataUrl }) => (
