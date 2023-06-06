@@ -15,7 +15,6 @@ import { useSwipeable } from "react-swipeable";
 import { variants } from "../utils/animationVariants";
 import { range } from "../utils/range";
 import type { ImageProps, SharedModalProps } from "../utils/types";
-import Twitter from "./Icons/Twitter";
 
 export default function SharedModal({
   index,
@@ -38,7 +37,11 @@ export default function SharedModal({
     trackMouse: true,
   });
   let currentImage = images ? images[index] : currentPhoto;
-  const imageLabel = currentImage.public_id.slice(16, -7);
+  const imageLabel =
+    currentImage.public_id === "susan-beck/HR_Prince2_tixuzq"
+      ? `${Number(currentImage.id) + 1} - Prince by Herb Ritts`
+      : `${Number(currentImage.id) + 1} - Prince by Steve Parke`;
+  // const imageCaption = currentImage.public_id.slice(16, -7);
   console.log("currentPhoto", currentImage);
   let aspectRatio = Number(currentImage.width) / Number(currentImage.height);
 
@@ -54,7 +57,8 @@ export default function SharedModal({
         {...handlers}
       >
         {/* Main image */}
-        <div className='h-97 w-full overflow-hidden'>
+        <div className='w-full'>
+          {/* <div className='h-97 w-full overflow-hidden'> */}
           <div className='relative flex aspect-[1/2] items-center justify-center'>
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
@@ -88,7 +92,7 @@ export default function SharedModal({
           {/* Buttons */}
           {loaded && (
             <div className='relative aspect-[3/2] max-h-full w-full'>
-              <div className='font-sm absolute bottom-1 right-3 z-50 bg-black px-2 py-1 text-white'>
+              <div className='font-sm absolute -top-10 right-5  z-50 bg-black px-2 py-1 text-white'>
                 <p className='text-sm md:text-base '> {imageLabel}</p>
               </div>
               {navigation && (

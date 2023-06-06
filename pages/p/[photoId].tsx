@@ -13,11 +13,11 @@ const Home: NextPage = ({ currentPhoto }: { currentPhoto: ImageProps }) => {
   let index = Number(photoId);
 
   const currentPhotoUrl = `https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_2560/${currentPhoto.public_id}.${currentPhoto.format}`;
-
+  console.log("current", currentPhotoUrl);
   return (
     <>
       <Head>
-        <title>Next.js Conf 2022 Photos</title>
+        <title>Iconic Archives - PRINCE</title>
         <meta property='og:image' content={currentPhotoUrl} />
       </Head>
       <main className='mx-auto max-w-[960px] p-4'>

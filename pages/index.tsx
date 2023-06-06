@@ -40,7 +40,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
             }}
           />
         )}
-        <div className='md:columns- columns-1 gap-4 sm:columns-2 md:columns-3 xl:columns-4 2xl:columns-5'>
+        <div className='columns-1 gap-4 sm:columns-2 md:columns-3 xl:columns-4 2xl:columns-5'>
           <div className='after:content relative mb-5 flex h-[400px] flex-col items-center justify-center gap-5 overflow-hidden rounded-lg bg-white/10 px-6 pb-6 pt-6 text-center text-white shadow-highlight after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight lg:pt-0'>
             <Logo />
             {/* <span className='my-1'></span> */}
@@ -48,7 +48,9 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
             <h2 className='text-base  uppercase tracking-wide text-white/75'>
               Icon Gallery <br></br>Viewing Room Featuring
             </h2>
-            <h1 className='text-5xl  uppercase tracking-widest'>PRINCE</h1>
+            <h1 className='text-3xl uppercase tracking-widest  lg:text-4xl xl:text-4xl'>
+              PRINCE
+            </h1>
             <h2 className='max-w-[40ch] tracking-wide text-white/75 sm:max-w-[32ch]'>
               Curated for Susan Beck
             </h2>
@@ -82,7 +84,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
       </main>
       <footer className='grid grid-cols-1 gap-2 p-6 text-center  text-white/50 sm:p-12'>
         <p className='text-m hover:text-white'>
-          <a href='https://icongallery.com'>Visit the entire collection </a>
+          <a href='https://icongallery.com'>Visit the Icon Gallery</a>
         </p>
         <p className='text-xs'>
           <a href='https://icongallery.com/copyright/' title='Copyright Notice'>
