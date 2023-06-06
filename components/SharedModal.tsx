@@ -13,7 +13,6 @@ import Image from "next/image";
 import { useState } from "react";
 import { useSwipeable } from "react-swipeable";
 import { variants } from "../utils/animationVariants";
-import downloadPhoto from "../utils/downloadPhoto";
 import { range } from "../utils/range";
 import type { ImageProps, SharedModalProps } from "../utils/types";
 import Twitter from "./Icons/Twitter";
@@ -51,8 +50,7 @@ export default function SharedModal({
       }}
     >
       <div
-        className='relative z-50  flex h-max w-full items-center'
-        // className='relative z-50 flex  w-full max-w-5xl items-center wide:h-full xl:taller-than-854:h-auto'
+        className='relative z-50 flex  w-full max-w-5xl items-center wide:h-full xl:taller-than-854:h-auto'
         {...handlers}
       >
         {/* Main image */}
@@ -74,8 +72,8 @@ export default function SharedModal({
                   }/image/upload/c_fill,${navigation ? "w_1280" : "w_1920"}/${
                     currentImage.public_id
                   }.${currentImage.format}`}
-                  width={aspectRatio > 1 ? 900 : 500}
-                  height={800}
+                  width={aspectRatio > 1 ? 749 : 499}
+                  height={aspectRatio > 1 ? 499 : 749}
                   priority
                   alt={imageLabel}
                   onLoadingComplete={() => setLoaded(true)}

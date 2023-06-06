@@ -40,8 +40,8 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
             }}
           />
         )}
-        <div className='columns-1 gap-4 sm:columns-2 xl:columns-3 2xl:columns-4'>
-          <div className='after:content relative mb-5 flex h-[629px] flex-col items-center justify-center gap-5 overflow-hidden rounded-lg bg-white/10 px-6 pb-6 pt-6 text-center text-white shadow-highlight after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight lg:pt-0'>
+        <div className='md:columns- columns-1 gap-4 sm:columns-2 md:columns-3 xl:columns-4 2xl:columns-5'>
+          <div className='after:content relative mb-5 flex h-[400px] flex-col items-center justify-center gap-5 overflow-hidden rounded-lg bg-white/10 px-6 pb-6 pt-6 text-center text-white shadow-highlight after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight lg:pt-0'>
             <Logo />
             {/* <span className='my-1'></span> */}
 
