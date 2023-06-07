@@ -167,7 +167,7 @@ export default function SharedModal({
                             ? "brightness-110 contrast-125 hover:brightness-110"
                             : "brightness-80 contrast-125 hover:brightness-95"
                         } h-full transform object-cover transition`}
-                        src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_180,c_thumb,g_faces/${public_id}.${format}`}
+                        src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_180,c_thumb,g_face,z_0.4/${public_id}.${format}`}
                       />
                     </motion.button>
                   ))}
