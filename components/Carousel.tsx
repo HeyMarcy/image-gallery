@@ -28,8 +28,8 @@ export default function Carousel({
   });
 
   return (
-    // <div className='fixed inset-0'>
     <div className='fixed inset-0 flex items-center justify-center'>
+      {/* <div className='fixed inset-0 flex items-center justify-center'> */}
       <button
         className='absolute inset-0 top-0 z-30 cursor-default bg-black backdrop-blur-2xl'
         onClick={closeModal}
