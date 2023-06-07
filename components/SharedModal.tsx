@@ -55,27 +55,11 @@ export default function SharedModal({
     >
       <div
         className='relative z-50 flex aspect-[3/2] h-full w-full max-w-7xl items-center wide:h-full'
-        // className='relative z-50  flex h-full w-full max-w-5xl bg-yellow-300  '
         {...handlers}
       >
-        <div className='absolute top-0 right-0 z-50 flex items-center gap-2 p-3 text-white'>
-          <button
-            onClick={() => closeModal()}
-            className='rounded-full bg-black/50 p-2 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white'
-          >
-            {navigation ? (
-              <XMarkIcon className='h-5 w-5' />
-            ) : (
-              <ArrowUturnLeftIcon className='h-5 w-5' />
-            )}
-          </button>
-        </div>
         {/* Main image */}
-
-        <div className='h-full w-full overflow-hidden lg:h-[750px] wide:h-full'>
-          <div
-            className={`aspect[1/2]  relative grid content-center justify-items-center`}
-          >
+        <div className='h-97 w-full overflow-hidden'>
+          <div className='relative flex aspect-[1/2] items-center justify-center pb-24'>
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={index}
