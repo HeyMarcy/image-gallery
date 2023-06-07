@@ -54,13 +54,28 @@ export default function SharedModal({
       }}
     >
       <div
-        className='relative  z-50 flex  w-full items-center bg-yellow-300 pb-[100px] '
+        className='relative z-50 flex aspect-[3/2] h-full w-full max-w-7xl items-center wide:h-full'
+        // className='relative z-50  flex h-full w-full max-w-5xl bg-yellow-300  '
         {...handlers}
       >
+        <div className='absolute top-0 right-0 z-50 flex items-center gap-2 p-3 text-white'>
+          <button
+            onClick={() => closeModal()}
+            className='rounded-full bg-black/50 p-2 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white'
+          >
+            {navigation ? (
+              <XMarkIcon className='h-5 w-5' />
+            ) : (
+              <ArrowUturnLeftIcon className='h-5 w-5' />
+            )}
+          </button>
+        </div>
         {/* Main image */}
 
         <div className='h-full w-full overflow-hidden lg:h-[750px] wide:h-full'>
-          <div className='relative  flex aspect-[1/1] items-center justify-center'>
+          <div
+            className={`aspect[1/2]  relative grid content-center justify-items-center`}
+          >
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={index}
@@ -117,19 +132,6 @@ export default function SharedModal({
                   )}
                 </>
               )}
-
-              <div className='absolute top-0 left-0 flex items-center gap-2 p-3 text-white'>
-                <button
-                  onClick={() => closeModal()}
-                  className='rounded-full bg-black/50 p-2 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white'
-                >
-                  {navigation ? (
-                    <XMarkIcon className='h-5 w-5' />
-                  ) : (
-                    <ArrowUturnLeftIcon className='h-5 w-5' />
-                  )}
-                </button>
-              </div>
             </div>
           )}
           {/* Bottom Nav bar */}
