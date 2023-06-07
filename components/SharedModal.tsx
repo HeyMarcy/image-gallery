@@ -54,13 +54,13 @@ export default function SharedModal({
       }}
     >
       <div
-        className='relative z-50 flex  w-full max-w-5xl items-center wide:h-full xl:taller-than-854:h-auto'
+        className='relative  z-50 flex  w-full items-center bg-yellow-300 pb-[100px] '
         {...handlers}
       >
         {/* Main image */}
-        <div className='w-full'>
-          {/* <div className='h-97 w-full overflow-hidden'> */}
-          <div className='relative flex aspect-[1/2] items-center justify-center'>
+
+        <div className='h-full w-full overflow-hidden lg:h-[750px] wide:h-full'>
+          <div className='relative  flex aspect-[1/1] items-center justify-center'>
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={index}
@@ -76,6 +76,9 @@ export default function SharedModal({
                   width={aspectRatio > 1 ? 749 : 499}
                   height={aspectRatio > 1 ? 499 : 749}
                   priority
+                  sizes='(max-width: 768px) 100vw,
+                  (max-width: 1200px) 50vw,
+                  33vw'
                   alt={imageLabel}
                   onLoadingComplete={() => setLoaded(true)}
                 />
