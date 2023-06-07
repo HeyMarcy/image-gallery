@@ -31,7 +31,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
       <Head>
         <title>Icon Gallery Viewing Room - PRINCE</title>
       </Head>
-      <main className='mx-auto max-w-[1960px] p-4'>
+      <main className='mx-auto max-w-[1960px] p-4 md:p-7 xl:p-10'>
         {photoId && (
           <Modal
             images={images}
@@ -51,9 +51,12 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
             <h1 className='text-3xl uppercase tracking-widest  lg:text-4xl xl:text-4xl'>
               PRINCE
             </h1>
-            <h2 className='max-w-[40ch] tracking-wide text-white/75 sm:max-w-[32ch]'>
+            <p className='max-w-[40ch] tracking-wide text-white/75 sm:max-w-[32ch]'>
+              by Steve Parke
+            </p>
+            <p className='max-w-[40ch] tracking-wide text-white/75 sm:max-w-[32ch]'>
               Curated for Susan Beck
-            </h2>
+            </p>
           </div>
           {images.map(({ id, public_id, format, blurDataUrl }) => (
             <Link
@@ -84,7 +87,9 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
       </main>
       <footer className='grid grid-cols-1 gap-2 p-6 text-center  text-white/50 sm:p-12'>
         <p className='text-m hover:text-white'>
-          <a href='https://icongallery.com'>Visit the Icon Gallery</a>
+          <a href='https://icongallery.com'>
+            Icon Gallery &nbsp;&nbsp;| &nbsp;&nbsp;Fine-Art Music Photography
+          </a>
         </p>
         <p className='text-xs'>
           <a href='https://icongallery.com/copyright/' title='Copyright Notice'>

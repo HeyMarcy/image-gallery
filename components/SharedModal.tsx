@@ -8,6 +8,7 @@ import {
   ChevronRightIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { CldImage } from "next-cloudinary";
 import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
@@ -37,11 +38,7 @@ export default function SharedModal({
     trackMouse: true,
   });
   let currentImage = images ? images[index] : currentPhoto;
-  const imageLabel =
-    currentImage.public_id === "susan-beck/HR_Prince2_tixuzq"
-      ? `${Number(currentImage.id) + 1} - Prince by Herb Ritts`
-      : `${Number(currentImage.id) + 1} - Prince by Steve Parke`;
-  // const imageCaption = currentImage.public_id.slice(16, -7);
+  const imageLabel = currentImage.public_id.slice(11, -7);
   console.log("currentPhoto", currentImage);
   let aspectRatio = Number(currentImage.width) / Number(currentImage.height);
 
@@ -53,12 +50,29 @@ export default function SharedModal({
       }}
     >
       <div
-        className='relative z-50 flex  w-full max-w-5xl items-center wide:h-full xl:taller-than-854:h-auto'
+        className='relative z-50 flex aspect-[3/2] h-full w-full max-w-7xl items-center wide:h-full'
         {...handlers}
       >
+        {/* close modal */}
+        <div className='absolute top-3 right-4 z-50 flex items-center gap-2 p-3 text-white'>
+          <button
+            onClick={() => closeModal()}
+            className='rounded-full bg-black/50 p-2 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white'
+          >
+            {navigation ? (
+              <XMarkIcon className='h-5 w-5' />
+            ) : (
+              <ArrowUturnLeftIcon className='h-5 w-5' />
+            )}
+          </button>
+        </div>
+        {/* image label */}
+        <div className='font-sm absolute top-4 left-5   z-50 bg-black px-2 py-1 text-white'>
+          <p className='text-sm md:text-base '> {imageLabel}</p>
+        </div>
         {/* Main image */}
-        <div className=' w-full overflow-hidden'>
-          <div className='relative flex aspect-[1/2] items-center justify-center'>
+        <div className='h-97 w-full overflow-hidden'>
+          <div className='relative flex aspect-[1/2] items-center justify-center pb-24'>
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={index}
@@ -69,15 +83,14 @@ export default function SharedModal({
                 exit='exit'
                 className='absolute '
               >
-                <Image
-                  src={`https://res.cloudinary.com/${
-                    process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
-                  }/image/upload/c_fill,${navigation ? "w_1280" : "w_1920"}/${
-                    currentImage.public_id
-                  }.${currentImage.format}`}
+                <CldImage
+                  src={currentImage.public_id}
                   width={aspectRatio > 1 ? 749 : 499}
                   height={aspectRatio > 1 ? 499 : 749}
                   priority
+                  sizes='(max-width: 768px) 100vw,
+                  (max-width: 1200px) 50vw,
+                  33vw'
                   alt={imageLabel}
                   onLoadingComplete={() => setLoaded(true)}
                 />
@@ -91,9 +104,6 @@ export default function SharedModal({
           {/* Buttons */}
           {loaded && (
             <div className='relative aspect-[3/2] max-h-full w-full'>
-              <div className='font-sm absolute -top-10 right-[calc(50%-80px)]   z-50 bg-black px-2 py-1 text-white'>
-                <p className='text-sm md:text-base '> {imageLabel}</p>
-              </div>
               {navigation && (
                 <>
                   {index > 0 && (
@@ -116,19 +126,6 @@ export default function SharedModal({
                   )}
                 </>
               )}
-
-              <div className='absolute top-0 left-0 flex items-center gap-2 p-3 text-white'>
-                <button
-                  onClick={() => closeModal()}
-                  className='rounded-full bg-black/50 p-2 text-white/75 backdrop-blur-lg transition hover:bg-black/75 hover:text-white'
-                >
-                  {navigation ? (
-                    <XMarkIcon className='h-5 w-5' />
-                  ) : (
-                    <ArrowUturnLeftIcon className='h-5 w-5' />
-                  )}
-                </button>
-              </div>
             </div>
           )}
           {/* Bottom Nav bar */}
@@ -170,7 +167,7 @@ export default function SharedModal({
                             ? "brightness-110 contrast-125 hover:brightness-110"
                             : "brightness-80 contrast-125 hover:brightness-95"
                         } h-full transform object-cover transition`}
-                        src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/c_scale,w_180/${public_id}.${format}`}
+                        src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_180,c_thumb,g_faces/${public_id}.${format}`}
                       />
                     </motion.button>
                   ))}

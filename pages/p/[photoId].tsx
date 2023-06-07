@@ -20,7 +20,7 @@ const Home: NextPage = ({ currentPhoto }: { currentPhoto: ImageProps }) => {
         <title>Iconic Archives - PRINCE</title>
         <meta property='og:image' content={currentPhotoUrl} />
       </Head>
-      <main className='mx-auto max-w-[960px] p-4'>
+      <main className='mx-auto max-w-[960px]'>
         <Carousel currentPhoto={currentPhoto} index={index} />
       </main>
     </>
