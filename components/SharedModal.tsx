@@ -57,8 +57,7 @@ export default function SharedModal({
         {...handlers}
       >
         {/* Main image */}
-        <div className='w-full'>
-          {/* <div className='h-97 w-full overflow-hidden'> */}
+        <div className=' w-full overflow-hidden'>
           <div className='relative flex aspect-[1/2] items-center justify-center'>
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
