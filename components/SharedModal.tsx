@@ -8,6 +8,7 @@ import {
   ChevronRightIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { CldImage } from "next-cloudinary";
 import { AnimatePresence, motion, MotionConfig } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
@@ -70,12 +71,8 @@ export default function SharedModal({
                 exit='exit'
                 className='absolute '
               >
-                <Image
-                  src={`https://res.cloudinary.com/${
-                    process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME
-                  }/image/upload/c_fill,${navigation ? "w_1280" : "w_1920"}/${
-                    currentImage.public_id
-                  }.${currentImage.format}`}
+                <CldImage
+                  src={currentImage.public_id}
                   width={aspectRatio > 1 ? 749 : 499}
                   height={aspectRatio > 1 ? 499 : 749}
                   priority
