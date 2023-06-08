@@ -151,9 +151,7 @@ export default function SharedModal({
                       onClick={() => changePhotoId(id)}
                       key={id}
                       className={`${
-                        id === index
-                          ? "z-20 rounded-md shadow shadow-black/50"
-                          : "z-10"
+                        id === index ? "z-20  shadow shadow-black/50" : "z-10"
                       } ${id === 0 ? "rounded-l-md" : ""} ${
                         id === images.length - 1 ? "rounded-r-md" : ""
                       } relative inline-block w-full shrink-0 transform-gpu overflow-hidden focus:outline-none`}
@@ -164,9 +162,9 @@ export default function SharedModal({
                         height={140}
                         className={`${
                           id === index
-                            ? "brightness-110 contrast-125 hover:brightness-110"
-                            : "brightness-80 contrast-125 hover:brightness-95"
-                        } h-full transform object-cover transition`}
+                            ? "brightness-110 contrast-125 hover:brightness-110 "
+                            : "brightness-75 contrast-125 hover:brightness-95"
+                        } mx-2 h-full transform object-cover transition`}
                         src={`https://res.cloudinary.com/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload/w_180,c_thumb,g_face,z_0.4/${public_id}.${format}`}
                       />
                     </motion.button>

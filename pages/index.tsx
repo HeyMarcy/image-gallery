@@ -48,13 +48,13 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
             <h2 className='text-base  uppercase tracking-wide text-white/75'>
               Icon Gallery <br></br>Viewing Room Featuring
             </h2>
-            <h1 className='text-3xl uppercase tracking-widest  lg:text-4xl xl:text-4xl'>
+            <h1 className=' mb-0 text-3xl  uppercase tracking-widest lg:text-4xl xl:text-4xl'>
               PRINCE
             </h1>
-            <p className='max-w-[40ch] tracking-wide text-white/75 sm:max-w-[32ch]'>
+            <p className='-mt-3 max-w-[40ch]  text-base tracking-wide text-white sm:max-w-[32ch]'>
               by Steve Parke
             </p>
-            <p className='max-w-[40ch] tracking-wide text-white/75 sm:max-w-[32ch]'>
+            <p className='mt-2 max-w-[40ch] text-sm tracking-wide text-white/75 sm:max-w-[32ch]'>
               Curated for Susan Beck
             </p>
           </div>
