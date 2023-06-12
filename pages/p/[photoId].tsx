@@ -17,7 +17,7 @@ const Home: NextPage = ({ currentPhoto }: { currentPhoto: ImageProps }) => {
   return (
     <>
       <Head>
-        <title>Iconic Archives - PRINCE</title>
+        <title>Icon Gallery - PRINCE</title>
         <meta property='og:image' content={currentPhotoUrl} />
       </Head>
       <main className='mx-auto max-w-[960px]'>
