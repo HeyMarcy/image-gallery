@@ -10,6 +10,7 @@ import cloudinary from "../utils/cloudinary";
 import getBase64ImageUrl from "../utils/generateBlurPlaceholder";
 import type { ImageProps } from "../utils/types";
 import { useLastViewedPhoto } from "../utils/useLastViewedPhoto";
+import { currentYear, imageLabel } from "../consts";
 
 const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
   const router = useRouter();
@@ -43,8 +44,6 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
         <div className='columns-1 gap-4 sm:columns-2 md:columns-3 xl:columns-4 2xl:columns-5'>
           <div className='after:content relative mb-5 flex h-[340px] flex-col items-center justify-center gap-5 overflow-hidden rounded-lg bg-white/10 px-6 pb-11 pt-6 text-center text-white shadow-highlight after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight lg:h-[420px] lg:pt-1'>
             <Logo />
-            {/* <span className='my-1'></span> */}
-
             <h2 className='text-base  uppercase tracking-wide text-white/75'>
               Icon Gallery <br></br>Viewing Room Featuring
             </h2>
@@ -68,7 +67,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
               className='after:content group relative mb-5 block w-full cursor-zoom-in after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight'
             >
               <Image
-                alt='Next.js Conf photo'
+                alt={`Icon Gallery ${imageLabel}`}
                 className='transform rounded-lg brightness-90 transition will-change-auto group-hover:brightness-110'
                 style={{ transform: "translate3d(0, 0, 0)" }}
                 placeholder='blur'
@@ -93,7 +92,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
         </p>
         <p className='text-xs'>
           <a href='https://icongallery.com/copyright/' title='Copyright Notice'>
-            ©2023 Icon Gallery LLC
+            {` ©${currentYear} Icon Gallery LLC`}
           </a>
         </p>
       </footer>
@@ -106,7 +105,7 @@ export default Home;
 export async function getStaticProps() {
   const results = await cloudinary.v2.search
     .expression(`folder:${process.env.CLOUDINARY_FOLDER}/*`)
-    .sort_by("public_id", "desc")
+    .sort_by("public_id", "asc")
     .max_results(400)
     .execute();
   let reducedResults: ImageProps[] = [];

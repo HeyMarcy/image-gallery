@@ -76,7 +76,7 @@ export default function SharedModal({
         </div>
         {/* Main image */}
         <div className='h-97 w-full placeholder:overflow-hidden'>
-          <div className='relative flex aspect-[2/1] items-center justify-center pb-24'>
+          <div className='relative flex aspect-[1/1] items-center justify-center pb-24'>
             <AnimatePresence initial={false} custom={direction}>
               <motion.div
                 key={index}
