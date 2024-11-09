@@ -30,7 +30,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
   return (
     <>
       <Head>
-        <title>Icon Gallery Viewing Room - PRINCE</title>
+        <title>Icon Gallery Viewing Room - Tears for Fears</title>
       </Head>
       <main className='mx-auto max-w-[1960px] p-4 md:p-7 xl:p-10'>
         {photoId && (
@@ -48,13 +48,13 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
               Icon Gallery <br></br>Viewing Room Featuring
             </h2>
             <h1 className=' mb-0 text-3xl  uppercase tracking-widest lg:text-4xl xl:text-4xl'>
-              PRINCE
+            Tears <span className="text-xl ">for</span> Fears
             </h1>
-            <p className='-mt-3 max-w-[40ch]  text-base tracking-wide text-white sm:max-w-[32ch]'>
+            {/* <p className='-mt-3 max-w-[40ch]  text-base tracking-wide text-white sm:max-w-[32ch]'>
               by Steve Parke
-            </p>
+            </p> */}
             <p className='mt-2 max-w-[40ch] text-sm tracking-wide text-white/75 sm:max-w-[32ch]'>
-              Curated for Susan Beck
+              Curated for Jeff Meleski
             </p>
           </div>
           {images.map(({ id, public_id, format, blurDataUrl }) => (
