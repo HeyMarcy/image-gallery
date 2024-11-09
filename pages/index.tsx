@@ -48,7 +48,7 @@ const Home: NextPage = ({ images }: { images: ImageProps[] }) => {
               Icon Gallery <br></br>Viewing Room Featuring
             </h2>
             <h1 className=' mb-0 text-3xl  uppercase tracking-widest lg:text-4xl xl:text-4xl'>
-            Tears <span className="text-xl ">for</span> Fears
+            Tears <span className="text-xl tracking-normal">for</span> Fears
             </h1>
             {/* <p className='-mt-3 max-w-[40ch]  text-base tracking-wide text-white sm:max-w-[32ch]'>
               by Steve Parke
