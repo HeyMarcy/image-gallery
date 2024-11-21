@@ -9,7 +9,7 @@ type CurrentImageProps = {
   blurDataUrl?: string;
 };
 
-export const DIRECTORY_NAME = "susan-beck";
+export const DIRECTORY_NAME = "meleski_jeff";
 
 export const imageLabel = (currentImage: CurrentImageProps) =>
   currentImage.public_id.slice(DIRECTORY_NAME.length + 1, -7);

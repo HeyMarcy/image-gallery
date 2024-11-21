@@ -1,37 +1,40 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  future: {
-    hoverOnlyWhenSupported: true,
-  },
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
-      boxShadow: {
-        highlight: "inset 0 0 0 1px rgba(255, 255, 255, 0.05)",
-      },
-      screens: {
-        narrow: { raw: "(max-aspect-ratio: 3 / 2)" },
-        wide: { raw: "(min-aspect-ratio: 3 / 2)" },
-        "taller-than-854": { raw: "(min-height: 854px)" },
-      },
       fontFamily: {
-        sans: ["Lato", "arial", "helvetica", "sans-serif"],
+        lato: ["Lato", "sans-serif"],
+        "inter-tight": ["Inter Tight", "sans-serif"],
       },
       fontSize: {
-        xs: "0.7rem",
-        sm: "0.85rem",
-        base: "1rem",
-        xl: '1.25rem',
-        // '2xl': '1.563rem',
-        // '3xl': '1.953rem',
-        // '4xl': '2.441rem',
-        // '5xl': '3.052rem',
+        xs: ["0.75rem", { lineHeight: "1.5" }],
+        sm: ["0.875rem", { lineHeight: "1.5715" }],
+        base: ["1rem", { lineHeight: "1.5", letterSpacing: "-0.017em" }],
+        lg: ["1.125rem", { lineHeight: "1.5", letterSpacing: "-0.017em" }],
+        xl: ["1.25rem", { lineHeight: "1.5", letterSpacing: "-0.017em" }],
+        "2xl": ["1.5rem", { lineHeight: "1.415", letterSpacing: "-0.017em" }],
+        "3xl": [
+          "1.875rem",
+          { lineHeight: "1.3333", letterSpacing: "-0.017em" },
+        ],
+        "4xl": ["2.25rem", { lineHeight: "1.2777", letterSpacing: "-0.017em" }],
+        "5xl": ["3rem", { lineHeight: "1", letterSpacing: "-0.017em" }],
+        "6xl": ["4rem", { lineHeight: "1", letterSpacing: "-0.017em" }],
+        "7xl": ["4.5rem", { lineHeight: "1", letterSpacing: "-0.017em" }],
+      },
+      keyframes: {
+        swing: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-100px)" },
+        },
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
