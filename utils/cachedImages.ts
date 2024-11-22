@@ -1,6 +1,15 @@
 import cloudinary from "./cloudinary";
 
-let cachedResults;
+interface CloudinaryResult {
+    height: number;
+    public_id: string;
+    secure_url: string;
+    width: number;
+    blurDataUrl?: string;
+    label?: string;
+  }
+
+let cachedResults: CloudinaryResult[] | undefined;
 
 export default async function getResults() {
   if (!cachedResults) {
