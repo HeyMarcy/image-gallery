@@ -14,7 +14,7 @@ export default function DefaultLayout({
     <>
       {/* <VerticalLines /> */}
       <BgShapes />
-      <Header />
+
 
       <main className="grow">{children}</main>
 

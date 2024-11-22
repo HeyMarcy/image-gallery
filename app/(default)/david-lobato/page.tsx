@@ -3,9 +3,8 @@
 //  type resources
 
 export const metadata = {
-  title: "Updates - Creative",
-  description: "Page description",
-};
+  title: "Curated Gallery for David Lobato",
+}
 
 import MediaGallery from '@/components/MediaGallery';
 import PageHeader from "@/components/page-header";
