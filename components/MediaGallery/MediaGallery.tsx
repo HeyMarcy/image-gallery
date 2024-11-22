@@ -45,7 +45,7 @@ export interface SharedModalProps {
 }
 
 interface MediaGalleryProps {
-  resources: Array<{ id: string }>;
+  resources: CloudinaryResource[];
   patronName?: string;
   artistName?: any;
 }
@@ -55,49 +55,12 @@ const MediaGallery = ({
   patronName,
   artistName,
 }: MediaGalleryProps) => {
-  const [selected, setSelected] = useState<Array<string>>([]);
-  const [creation, setCreation] = useState();
 
-  /**
-   * handleOnClearSelection
-   */
 
-  function handleOnClearSelection() {
-    setSelected([]);
-  }
 
-  /**
-   * handleOnCreationOpenChange
-   */
-
-  function handleOnCreationOpenChange(isOpen: boolean) {
-    if (!isOpen) {
-      setCreation(undefined);
-    }
-  }
 
   return (
     <>
-      {/** Popup modal used to preview and confirm new creations */}
-
-      <Dialog open={!!creation} onOpenChange={handleOnCreationOpenChange}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Save your creation?</DialogTitle>
-          </DialogHeader>
-          <DialogFooter className="justify-end sm:justify-end">
-            <Button>
-              <Save className="h-4 w-4 mr-2" />
-              Save to Library
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-
-      {/** Management navbar presented when assets are selected */}
-
-      {/** Gallery */}
-
       <div className="columns-1 gap-4 sm:columns-2 md:columns-3 xl:columns-4 2xl:columns-5">
         <div className="after:content relative mb-5 flex h-[340px] flex-col items-center justify-center gap-5 overflow-hidden rounded-lg bg-white/10 px-6 pb-11 pt-6 text-center text-white shadow-highlight after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:shadow-highlight lg:h-[420px] lg:pt-1">
           <Logo />
@@ -110,9 +73,9 @@ const MediaGallery = ({
             {` Curated for ${patronName}`}
           </p>
         </div>
-        {Array.isArray(resources) && (
+        {Array.isArray(resources:) && (
           <ul>
-            {resources.map((resource: CloudinaryResource) => {
+            {resources.map((resource) => {
               return (
                 <li
                   key={resource.public_id}
