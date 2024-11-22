@@ -87,7 +87,7 @@ export default function Header() {
             </nav>
 
             {/* Light switch */}
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
           </div>
         </div>
       </div>
